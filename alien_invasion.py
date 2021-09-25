@@ -5,6 +5,8 @@ import sys
 import pygame
 #importing a settings module:
 from settings import Settings
+#importing a ship:
+from ship import Ship
 
 #class for Game Management:
 class AlienInvasion:
@@ -16,7 +18,7 @@ class AlienInvasion:
         self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("ALIEN INVASION")
         pygame.display.update()
-
+        self.ship = Ship(self)
     def run_game(self):
         '''
         open = True
@@ -32,7 +34,8 @@ class AlienInvasion:
                 if event.type == pygame.QUIT:
                     print(event)
                     sys.exit()
-                self.screen.fill(self.settings.bg_color)
+            self.screen.fill(self.settings.bg_color)
+            self.ship.blitme()
             pygame.display.flip()
 
 if __name__=="__main__":
