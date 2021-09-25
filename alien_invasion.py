@@ -3,6 +3,8 @@
 import sys
 #importing pygame:
 import pygame
+#importing a settings module:
+from settings import Settings
 
 #class for Game Management:
 class AlienInvasion:
@@ -10,8 +12,8 @@ class AlienInvasion:
     def __init__(self):
         """Initialize the game."""
         pygame.init()
-
-        self.screen = pygame.display.set_mode((1200,800))
+        self.settings = Settings()
+        self.screen = pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("ALIEN INVASION")
         pygame.display.update()
 
@@ -30,6 +32,7 @@ class AlienInvasion:
                 if event.type == pygame.QUIT:
                     print(event)
                     sys.exit()
+                self.screen.fill(self.settings.bg_color)
             pygame.display.flip()
 
 if __name__=="__main__":
