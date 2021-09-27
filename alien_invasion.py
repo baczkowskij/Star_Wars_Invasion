@@ -101,7 +101,6 @@ class AlienInvasion:
         elif event.key == pygame.K_LEFT:
             self.ship.moving_left = False
             
-
     def _check_p_play_button(self):
             self.settings.initialize_dynamic_settings()
             pygame.mouse.set_visible(False)
@@ -113,7 +112,6 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
         
-
     def _check_play_button(self,mouse_pos):
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
@@ -217,6 +215,7 @@ class AlienInvasion:
             if alien.check_edges():
                 self._change_fleet_direction()
                 break
+   
     def _change_fleet_direction(self):
         for alien in self.aliens.sprites():
             alien.rect.y += self.settings.fleet_drop_speed
